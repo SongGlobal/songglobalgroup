@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SONG GLOBAL GROUP | 해외금융자문</title>
+  <meta name="description" content="송 글로벌그룹(SONG GLOBAL GROUP)은 개인·기업·고액자산가를 위한 해외금융자문을 제공합니다. 자산관리·상속·증여 전략, 글로벌 보험/투자 솔루션 상담." />
+  <meta name="theme-color" content="#0B1220" />
+
+  <style>
+    :root{
+      --bg:#0B1220;
+      --card:#101A31;
+      --line:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --soft:rgba(255,255,255,.08);
+      --brand:#5AA7FF;
+      --accent:#9B7BFF;
+      --ok:#4ADE80;
+      --warn:#FBBF24;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Helvetica, Arial, "Apple SD Gothic Neo", sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 420px at 12% -10%, rgba(90,167,255,.28), transparent 65%),
+        radial-gradient(900px 420px at 88% 0%, rgba(155,123,255,.22), transparent 60%),
+        radial-gradient(700px 420px at 50% 110%, rgba(90,167,255,.18), transparent 55%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
+
+    /* 상단 메뉴 고정 */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.70);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-in{display:flex; align-items:center; justify-content:space-between; height:72px; gap:14px;}
+    .brand{display:flex; gap:12px; align-items:center; min-width: 260px;}
+    .brand h1{font-size:14px; margin:0; letter-spacing:.18em; font-weight:750}
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+    .menu{display:flex; gap:18px; align-items:center; flex:1; justify-content:center;}
+    .menu a{font-size:13px; color:var(--muted); padding:10px 10px; border-radius:12px; border:1px solid transparent;}
+    .menu a:hover{color:var(--text); background:var(--soft); border-color:var(--line);}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:700; font-size:13px; gap:8px;
+      cursor:pointer; transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.18);}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(90,167,255,.95), rgba(155,123,255,.90));
+      border-color: transparent;
+      box-shadow: 0 14px 34px rgba(90,167,255,.18);
+    }
+    .btn.primary:hover{background: linear-gradient(135deg, rgba(90,167,255,1), rgba(155,123,255,1));}
+
+    /* 로고 SVG */
+    .logoBox{
+      width:40px;height:40px;border-radius:12px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(90,167,255,.95), rgba(155,123,255,.85));
+      box-shadow: 0 12px 30px rgba(90,167,255,.18);
+      overflow:hidden;
+    }
+    .logoBox svg{width:28px;height:28px}
+
+    .hero{padding: 64px 0 26px;}
+    .hero-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:stretch;}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      font-size:12px; color:var(--muted);
+      padding:8px 12px; border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius:999px; width:fit-content;
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--ok); box-shadow:0 0 0 4px rgba(74,222,128,.12);}
+    .hero h2{margin:14px 0 10px; font-size:44px; letter-spacing:-.02em; line-height:1.12;}
+    .hero h2 span{
+      background: linear-gradient(135deg, rgba(90,167,255,1), rgba(155,123,255,1));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .hero p{margin:0; color:var(--muted); font-size:16px; line-height:1.7; max-width:54ch;}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;}
+    .hero-meta{display:flex; gap:16px; flex-wrap:wrap; margin-top:18px; color:var(--muted); font-size:12px;}
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:10px 12px; border-radius:14px;
+      border:1px solid var(--line); background: rgba(255,255,255,.03);
+    }
+    .badge b{color:var(--text)}
+    .card{
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: rgba(16,26,49,.72);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-head{padding:18px 18px 0; display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
+    .card-head h3{margin:0; font-size:14px; letter-spacing:.12em; font-weight:800; color:var(--muted);}
+    .card-body{padding:16px 18px 18px;}
+
+    .mini{display:grid; gap:10px;}
+    .mini-item{
+      padding:12px 12px; border-radius:16px;
+      border:1px solid var(--line); background: rgba(255,255,255,.03);
+    }
+    .mini-item .t{font-size:13px; font-weight:800; margin:0 0 4px;}
+    .mini-item .d{font-size:12px; color:var(--muted); margin:0; line-height:1.55}
+
+    .section{padding: 44px 0;}
+    .section h3{margin:0 0 10px; font-size:26px; letter-spacing:-.02em;}
+    .section p.lead{margin:0 0 22px; color:var(--muted); line-height:1.7; max-width:70ch;}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    .feature{
+      padding:18px; border-radius: var(--radius);
+      border:1px solid var(--line); background: rgba(255,255,255,.03);
+    }
+    .feature .icon{
+      width:42px;height:42px;border-radius:14px;
+      background: rgba(90,167,255,.14);
+      border:1px solid rgba(90,167,255,.25);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:12px;
+    }
+    .feature h4{margin:0 0 6px; font-size:15px}
+    .feature p{margin:0; color:var(--muted); font-size:13px; line-height:1.7}
+
+    .split{display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:stretch;}
+    .list{display:grid; gap:10px;}
+    .li{
+      padding:14px 14px; border-radius:16px;
+      border:1px solid var(--line); background: rgba(255,255,255,.03);
+    }
+    .li .k{display:flex; justify-content:space-between; gap:10px; align-items:flex-start;}
+    .li .k b{font-size:14px}
+    .tag{
+      font-size:11px; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line); background: rgba(255,255,255,.04);
+      color: var(--muted); white-space:nowrap;
+    }
+    .li p{margin:6px 0 0; color:var(--muted); font-size:13px; line-height:1.7}
+
+    .cta{padding: 34px 0 64px;}
+    .cta-box{
+      display:grid; grid-template-columns: 1.2fr .8fr;
+      gap:14px; padding:22px;
+      border-radius: 26px; border:1px solid var(--line);
+      background:
+        radial-gradient(900px 420px at 0% 0%, rgba(90,167,255,.22), transparent 60%),
+        radial-gradient(900px 420px at 100% 0%, rgba(155,123,255,.20), transparent 60%),
+        rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+    }
+    .cta-box h3{margin:0 0 6px; font-size:22px}
+    .cta-box p{margin:0; color:var(--muted); line-height:1.7}
+
+    form{
+      display:grid; gap:10px;
+      padding:14px; border-radius:20px;
+      border:1px solid var(--line); background: rgba(11,18,32,.40);
+    }
+    label{font-size:12px; color:var(--muted)}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--text); outline:none;
+      font-family: var(--font); font-size:13px;
+    }
+    textarea{min-height:92px; resize:vertical}
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(90,167,255,.55);
+      box-shadow: 0 0 0 4px rgba(90,167,255,.12);
+    }
+    .fine{font-size:11px; color: rgba(255,255,255,.58); line-height:1.6; margin:2px 0 0;}
+    footer{border-top:1px solid var(--line); padding:22px 0; color: var(--muted); font-size:12px;}
+    .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center;}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--line); background: rgba(255,255,255,.03);
+    }
+
+    /* 언어 토글 */
+    .lang-en{display:none;} /* 기본 한국어 */
+    .langToggle{display:flex; gap:8px; align-items:center;}
+
+    /* 제출 성공/실패 메시지 */
+    .formStatus{
+      display:none;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .formStatus.show{display:block;}
+    .formStatus.ok{border-color: rgba(74,222,128,.35);}
+    .formStatus.err{border-color: rgba(251,191,36,.35);}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr;}
+      .cta-box{grid-template-columns: 1fr;}
+      .grid3{grid-template-columns: 1fr;}
+      .split{grid-template-columns: 1fr;}
+      .hero h2{font-size:38px}
+      .menu{display:none;}
+      .brand{min-width:auto;}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="#top" aria-label="SONG GLOBAL GROUP">
+        <div class="logoBox" aria-hidden="true">
+          <!-- SGG 모노그램(간단 SVG 로고) -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M50 18c-5-6-13-9-21-7-11 3-18 15-14 26 4 10 17 16 28 10"
+              stroke="rgba(255,255,255,.92)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M18 30c5-4 13-4 18 1 6 5 7 14 2 20"
+              stroke="rgba(255,255,255,.80)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M22 48c9 5 20 2 25-6"
+              stroke="rgba(255,255,255,.70)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>SONG GLOBAL GROUP</h1>
+          <p>해외금융자문 · 자산관리 · 상속 · 증여</p>
+        </div>
+      </a>
+
+      <div class="menu" aria-label="메뉴">
+        <a href="#services">서비스</a>
+        <a href="#portfolio">포트폴리오</a>
+        <a href="#process">프로세스</a>
+        <a href="#trust">신뢰</a>
+        <a href="#about">회사소개</a>
+        <a href="#ceo">CEO 메시지</a>
+        <a href="#contact">상담</a>
+      </div>
+
+      <div class="langToggle">
+        <button class="btn" type="button" onclick="setLang('ko')">KOR</button>
+        <button class="btn" type="button" onclick="setLang('en')">ENG</button>
+        <a class="btn primary" href="#contact">무료 상담 신청</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> 개인·기업·고액자산가 대상 글로벌 솔루션</div>
+
+          <div class="lang lang-ko">
+            <h2>해외금융을 통한 <span>자산관리·상속·증여</span><br/>전략을 한 곳에서.</h2>
+            <p>
+              송 글로벌그룹은 고객의 목적(보장·유동성·승계·세무)을 기준으로 해외 금융상품과 구조를 설계합니다.
+              상담부터 실행, 사후관리까지 투명한 프로세스로 동행합니다.
+            </p>
+          </div>
+
+          <div class="lang lang-en">
+            <h2>Overseas finance for <span>Wealth, Succession</span><br/>and Long-term Stability.</h2>
+            <p>
+              SONG GLOBAL GROUP designs overseas financial structures based on your objectives
+              (protection, liquidity, succession, tax considerations) and supports you from consultation
+              to implementation and ongoing reviews.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">상담 예약하기</a>
+            <a class="btn" href="#portfolio">사례/포트폴리오 보기</a>
+            <a class="btn" href="#services">서비스 확인</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="badge"><span style="width:10px;height:10px;border-radius:99px;background:var(--brand);display:inline-block"></span> <b>신뢰 기반</b> 문서화</div>
+            <div class="badge"><span style="width:10px;height:10px;border-radius:99px;background:var(--accent);display:inline-block"></span> <b>맞춤 설계</b> 목적 중심</div>
+            <div class="badge"><span style="width:10px;height:10px;border-radius:99px;background:var(--warn);display:inline-block"></span> <b>사후관리</b> 정기 점검</div>
+          </div>
+        </div>
+
+        <aside class="card" aria-label="요약 카드">
+          <div class="card-head">
+            <h3>CONSULTING SUMMARY</h3>
+            <span class="tag">Trust · Proof · Conversion</span>
+          </div>
+          <div class="card-body">
+            <div class="mini">
+              <div class="mini-item">
+                <p class="t">핵심 제공 가치</p>
+                <p class="d">글로벌 보험/투자 구조를 목적 중심으로 설계하고 실행 리스크를 문서로 관리합니다.</p>
+              </div>
+              <div class="mini-item">
+                <p class="t">대상 고객</p>
+                <p class="d">개인 · 법인 · 고액자산가 / 승계 니즈 보유 고객</p>
+              </div>
+              <div class="mini-item">
+                <p class="t">결과물</p>
+                <p class="d">진단 → 설계안(비교표) → 실행 체크리스트 → 정기 점검 리포트</p>
+              </div>
+              <div class="mini-item">
+                <p class="t">빠른 상담</p>
+                <p class="d">아래 ‘상담 신청’에 정보를 남기면 담당자가 우선순위로 안내합니다.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <h3 class="lang lang-ko">서비스</h3>
+      <h3 class="lang lang-en">Services</h3>
+
+      <p class="lead lang lang-ko">
+        고객 목적을 기준으로 설계를 시작합니다. 상품 중심이 아닌 자금흐름·세무·승계·리스크를 함께 고려한 구조를 제안합니다.
+      </p>
+      <p class="lead lang lang-en">
+        We begin with your objectives. We design structures considering cashflow, tax, succession, and risk—beyond products.
+      </p>
+
+      <div class="grid3">
+        <div class="feature">
+          <div class="icon" aria-hidden="true">①</div>
+          <h4 class="lang lang-ko">해외 보험 기반 승계 설계</h4>
+          <h4 class="lang lang-en">Succession Planning via Global Insurance</h4>
+          <p class="lang lang-ko">상속/증여 목적, 유동성 확보, 가족 보호를 위해 구조를 설계하고 문서화합니다.</p>
+          <p class="lang lang-en">Design and document structures for liquidity, family protection, and intergenerational transfer.</p>
+        </div>
+        <div class="feature">
+          <div class="icon" aria-hidden="true">②</div>
+          <h4 class="lang lang-ko">자산관리 및 포트폴리오 컨설팅</h4>
+          <h4 class="lang lang-en">Wealth & Portfolio Consulting</h4>
+          <p class="lang lang-ko">기간·리스크·현금흐름 조건에 따라 대안 비교표와 실행 체크리스트를 제공합니다.</p>
+          <p class="lang lang-en">Provide comparable alternatives and implementation checklists aligned with timeline and risk profile.</p>
+        </div>
+        <div class="feature">
+          <div class="icon" aria-hidden="true">③</div>
+          <h4 class="lang lang-ko">법인/오너 리스크 관리</h4>
+          <h4 class="lang lang-en">Corporate / Owner Risk Management</h4>
+          <p class="lang lang-ko">오너십 리스크, 보장 공백 점검, 중장기 재무 플랜 수립을 지원합니다.</p>
+          <p class="lang lang-en">Assess coverage gaps, continuity risks, and build mid-to-long term financial roadmaps.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section">
+      <h3 class="lang lang-ko">포트폴리오(예시)</h3>
+      <h3 class="lang lang-en">Portfolio (Sample Formats)</h3>
+
+      <p class="lead lang lang-ko">
+        아래는 고객 이해를 돕기 위한 예시 포맷입니다. 실제 제안서는 고객 상황에 따라 구성·항목이 달라집니다.
+      </p>
+      <p class="lead lang lang-en">
+        These are sample formats for illustration. Actual proposals vary by client circumstances and objectives.
+      </p>
+
+      <div class="split">
+        <div class="list">
+          <div class="li">
+            <div class="k">
+              <b class="lang lang-ko">고액자산가 승계 구조 설계</b>
+              <b class="lang lang-en">HNW Succession Structure</b>
+              <span class="tag">Succession</span>
+            </div>
+            <p class="lang lang-ko">목적·기간·수익자 설계 → 유동성 확보안 → 리스크 시나리오 문서 패키지</p>
+            <p class="lang lang-en">Objectives/timeline/beneficiaries → liquidity planning → documented risk scenarios.</p>
+          </div>
+
+          <div class="li">
+            <div class="k">
+              <b class="lang lang-ko">법인 오너 리스크 점검</b>
+              <b class="lang lang-en">Corporate Owner Risk Review</b>
+              <span class="tag">Corporate</span>
+            </div>
+            <p class="lang lang-ko">사업 연속성 점검 → 보장 공백 분석 → 실행 우선순위 로드맵</p>
+            <p class="lang lang-en">Continuity analysis → coverage gap review → prioritized implementation roadmap.</p>
+          </div>
+
+          <div class="li">
+            <div class="k">
+              <b class="lang lang-ko">대안 비교표 기반 제안</b>
+              <b class="lang lang-en">Comparable Alternatives Proposal</b>
+              <span class="tag">Transparency</span>
+            </div>
+            <p class="lang lang-ko">동일 기준(목적·비용·유동성·리스크)으로 대안을 비교해 의사결정 근거를 제공합니다.</p>
+            <p class="lang lang-en">Compare options using consistent criteria and document decision rationale.</p>
+          </div>
+        </div>
+
+        <div class="card" aria-label="Deliverables card">
+          <div class="card-head">
+            <h3>DELIVERABLES</h3>
+            <span class="tag">Report Package</span>
+          </div>
+          <div class="card-body">
+            <div class="mini">
+              <div class="mini-item"><p class="t">1) 진단</p><p class="d">현황/현금흐름/관계도/리스크 체크</p></div>
+              <div class="mini-item"><p class="t">2) 설계안</p><p class="d">대안 비교표, 장단점, 시나리오</p></div>
+              <div class="mini-item"><p class="t">3) 실행</p><p class="d">서류·일정·관리 포인트 체크리스트</p></div>
+              <div class="mini-item"><p class="t">4) 사후관리</p><p class="d">정기 점검 및 변경사항 반영</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section">
+      <h3 class="lang lang-ko">상담 프로세스</h3>
+      <h3 class="lang lang-en">Consulting Process</h3>
+
+      <p class="lead lang lang-ko">“정확하고 투명하게” 진행합니다. 핵심 단계마다 문서로 남깁니다.</p>
+      <p class="lead lang lang-en">We prioritize accuracy and transparency, documenting each key step.</p>
+
+      <div class="grid3">
+        <div class="feature">
+          <div class="icon" aria-hidden="true">1</div>
+          <h4 class="lang lang-ko">요구사항/목표 정의</h4>
+          <h4 class="lang lang-en">Define Objectives</h4>
+          <p class="lang lang-ko">목적(승계/보장/유동성)과 기간, 우선순위를 정리합니다.</p>
+          <p class="lang lang-en">Clarify purpose, timeline, and priorities.</p>
+        </div>
+        <div class="feature">
+          <div class="icon" aria-hidden="true">2</div>
+          <h4 class="lang lang-ko">대안 설계 및 비교</h4>
+          <h4 class="lang lang-en">Design & Compare</h4>
+          <p class="lang lang-ko">동일 기준으로 대안을 비교하고 선택 근거를 명확히 합니다.</p>
+          <p class="lang lang-en">Compare alternatives with consistent criteria and documented rationale.</p>
+        </div>
+        <div class="feature">
+          <div class="icon" aria-hidden="true">3</div>
+          <h4 class="lang lang-ko">실행 및 사후관리</h4>
+          <h4 class="lang lang-en">Implement & Review</h4>
+          <p class="lang lang-ko">체크리스트 기반 실행과 정기 점검으로 리스크를 관리합니다.</p>
+          <p class="lang lang-en">Manage risks through checklists and periodic reviews.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section id="trust" class="section">
+      <h3 class="lang lang-ko">신뢰(컴플라이언스 및 원칙)</h3>
+      <h3 class="lang lang-en">Trust & Principles</h3>
+
+      <p class="lead lang lang-ko">고객의 장기 목표를 보호하기 위해 아래 원칙을 고정 운영합니다.</p>
+      <p class="lead lang lang-en">We operate with fixed principles to protect your long-term objectives.</p>
+
+      <div class="split">
+        <div class="list">
+          <div class="li">
+            <div class="k"><b class="lang lang-ko">문서화 원칙</b><b class="lang lang-en">Documentation</b><span class="tag">Transparency</span></div>
+            <p class="lang lang-ko">설계 근거와 비교 기준, 실행 체크리스트를 문서로 제공합니다.</p>
+            <p class="lang lang-en">We provide documented rationale, comparison criteria, and implementation checklists.</p>
+          </div>
+          <div class="li">
+            <div class="k"><b class="lang lang-ko">목적 중심 설계</b><b class="lang lang-en">Objective-driven</b><span class="tag">Client-first</span></div>
+            <p class="lang lang-ko">상품이 아니라 목적을 먼저 정의하고 그에 맞춰 대안을 구성합니다.</p>
+            <p class="lang lang-en">We define objectives first, then design the best-fitting alternatives.</p>
+          </div>
+          <div class="li">
+            <div class="k"><b class="lang lang-ko">리스크 고지</b><b class="lang lang-en">Risk Disclosure</b><span class="tag">Compliance</span></div>
+            <p class="lang lang-ko">변동성/환리스크/해지조건 등 핵심 리스크를 사전에 설명합니다.</p>
+            <p class="lang lang-en">We explain key risks in advance, including volatility, FX risk, and surrender conditions.</p>
+          </div>
+        </div>
+
+        <div class="card" aria-label="Company info">
+          <div class="card-head">
+            <h3>COMPANY INFO</h3>
+            <span class="tag">OFFICE</span>
+          </div>
+          <div class="card-body">
+            <div class="mini">
+              <div class="mini-item"><p class="t">회사명</p><p class="d">송 글로벌그룹 (SONG GLOBAL GROUP)</p></div>
+              <div class="mini-item"><p class="t">오피스</p><p class="d">부산시 기장군 장안읍 좌천5길 53-3</p></div>
+              <div class="mini-item"><p class="t">운영시간</p><p class="d">월–금 10:00–17:00</p></div>
+              <div class="mini-item"><p class="t">Email</p><p class="d">89song89@gmail.com</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h3 class="lang lang-ko">회사 소개</h3>
+      <h3 class="lang lang-en">About Us</h3>
+
+      <p class="lead lang lang-ko">
+        송 글로벌그룹(SONG GLOBAL GROUP)은 개인, 기업, 고액자산가를 대상으로 해외금융자문 서비스를 제공하는 전문 컨설팅 그룹입니다.
+        자산관리, 상속·증여, 글로벌 보험 및 투자 구조 설계를 통해 고객의 장기적인 자산 보호와 안정적인 승계를 목표로 합니다.
+      </p>
+      <p class="lead lang lang-en">
+        SONG GLOBAL GROUP is a professional overseas financial advisory firm serving individuals, corporations,
+        and high-net-worth clients. We specialize in asset management, succession planning, and global
+        insurance-based financial structures designed for long-term stability.
+      </p>
+    </section>
+
+    <!-- CEO MESSAGE -->
+    <section id="ceo" class="section">
+      <h3 class="lang lang-ko">CEO 메시지</h3>
+      <h3 class="lang lang-en">CEO Message</h3>
+
+      <p class="lead lang lang-ko">송 글로벌그룹의 철학과 약속을 전합니다.</p>
+      <p class="lead lang lang-en">Our philosophy and commitment to clients.</p>
+
+      <div class="split">
+        <div class="card lang lang-ko" aria-label="CEO Message Korean">
+          <div class="card-head">
+            <h3>CEO MESSAGE (KOR)</h3>
+            <span class="tag">James Song · CEO</span>
+          </div>
+          <div class="card-body">
+            <p style="margin:0 0 12px; color: var(--muted); line-height:1.85;">
+              안녕하십니까, 송 글로벌그룹 CEO <b style="color:var(--text);">James Song</b>입니다.
+            </p>
+            <p style="margin:0 0 12px; color: var(--muted); line-height:1.85;">
+              송 글로벌그룹은 고객의 자산을 단순히 운용하는 것을 넘어, 보호하고 승계하며 미래로 연결하는 전략을 설계합니다.
+              해외금융은 선택지가 넓은 만큼, 기준과 원칙이 없다면 리스크가 커질 수 있습니다.
+            </p>
+            <p style="margin:0 0 12px; color: var(--muted); line-height:1.85;">
+              저희는 상담 단계부터 목적(자산관리·상속·증여·유동성)을 명확히 정의하고, 대안을 동일 기준으로 비교해
+              <b style="color:var(--text);">의사결정 근거를 문서화</b>합니다. 실행 이후에도 정기 점검을 통해 변화에 맞춰 전략을 업데이트합니다.
+            </p>
+            <p style="margin:0; color: var(--muted); line-height:1.85;">
+              고객 한 분, 한 분의 목표가 흔들리지 않도록 신뢰와 전문성으로 끝까지 동행하겠습니다. 감사합니다.
+            </p>
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="pill"><b style="color:var(--text)">CEO</b>&nbsp;James Song</span>
+              <span class="pill"><b style="color:var(--text)">SONG GLOBAL GROUP</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card lang lang-en" aria-label="CEO Message English">
+          <div class="card-head">
+            <h3>CEO MESSAGE (ENG)</h3>
+            <span class="tag">James Song · CEO</span>
+          </div>
+          <div class="card-body">
+            <p style="margin:0 0 12px; color: var(--muted); line-height:1.85;">
+              Hello, I am <b style="color:var(--text);">James Song</b>, CEO of SONG GLOBAL GROUP.
+            </p>
+            <p style="margin:0 0 12px; color: var(--muted); line-height:1.85;">
+              We go beyond “managing” assets—we design strategies to protect, preserve, and transfer wealth.
+              Overseas finance offers broader options, but without clear principles, risks can increase.
+            </p>
+            <p style="margin:0 0 12px; color: var(--muted); line-height:1.85;">
+              We start by defining your objectives, compare alternatives under consistent criteria, and provide
+              <b style="color:var(--text);">documented rationale</b>. After implementation, we conduct periodic reviews to stay aligned with changing conditions.
+            </p>
+            <p style="margin:0; color: var(--muted); line-height:1.85;">
+              We are committed to walking alongside you with integrity and expertise. Thank you.
+            </p>
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="pill"><b style="color:var(--text)">CEO</b>&nbsp;James Song</span>
+              <span class="pill"><b style="color:var(--text)">SONG GLOBAL GROUP</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="cta">
+      <div class="cta-box">
+        <div>
+          <h3 class="lang lang-ko">무료 상담 신청</h3>
+          <h3 class="lang lang-en">Request a Consultation</h3>
+
+          <p class="lang lang-ko">아래 정보를 남기시면 담당자가 연락드립니다.</p>
+          <p class="lang lang-en">Submit your details and we will contact you.</p>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+            <span class="pill"><b style="color:var(--text)">대표</b>&nbsp;James Song</span>
+            <span class="pill"><b style="color:var(--text)">전화</b>&nbsp;010-3577-9399</span>
+            <span class="pill"><b style="color:var(--text)">이메일</b>&nbsp;89song89@gmail.com</span>
+          </div>
+
+          <p class="fine" style="margin-top:12px;">
+            안내: 본 페이지의 내용은 일반 정보이며, 개별 상황에 따라 달라질 수 있습니다.
+          </p>
+        </div>
+
+        <!-- Formspree 연동(이미 반영): xyzzabcd -->
+        <form id="contactForm" action="https://formspree.io/f/xyzzabcd" method="POST">
+          <div>
+            <label for="name">성함 / Name</label>
+            <input id="name" name="name" placeholder="예) 홍길동" required />
+          </div>
+          <div>
+            <label for="phone">연락처 / Phone</label>
+            <input id="phone" name="phone" placeholder="예) 010-0000-0000" required />
+          </div>
+          <div>
+            <label for="type">상담 유형 / Type</label>
+            <select id="type" name="type">
+              <option value="개인 자산관리">개인 자산관리</option>
+              <option value="상속/증여(승계)">상속/증여(승계)</option>
+              <option value="법인/오너 리스크">법인/오너 리스크</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">문의 내용 / Message</label>
+            <textarea id="message" name="message" placeholder="상담 목적과 현재 상황을 간단히 적어주세요."></textarea>
+          </div>
+
+          <input type="hidden" name="_subject" value="[SONG GLOBAL GROUP] 상담 신청" />
+          <div id="formStatus" class="formStatus" aria-live="polite"></div>
+
+          <button class="btn primary" type="submit">상담 신청 제출</button>
+          <p class="fine">제출 즉시 상담 내용이 89song89@gmail.com으로 전송됩니다(Formspree 이메일 인증 완료 시).</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© <span id="year"></span> SONG GLOBAL GROUP. All rights reserved.</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <span class="pill">부산시 기장군 장안읍 좌천5길 53-3</span>
+        <span class="pill">월–금 10:00–17:00</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function setLang(lang){
+      const ko = document.querySelectorAll('.lang-ko');
+      const en = document.querySelectorAll('.lang-en');
+      if(lang === 'en'){
+        ko.forEach(el => el.style.display = 'none');
+        en.forEach(el => el.style.display = 'block');
+        localStorage.setItem('sgg_lang','en');
+      } else {
+        en.forEach(el => el.style.display = 'none');
+        ko.forEach(el => el.style.display = 'block');
+        localStorage.setItem('sgg_lang','ko');
+      }
+    }
+    (function initLang(){
+      const saved = localStorage.getItem('sgg_lang') || 'ko';
+      setLang(saved);
+    })();
+
+    /* 폼 제출 UX 개선: 성공/실패 메시지 표시 */
+    const form = document.getElementById('contactForm');
+    const statusBox = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusBox.className = 'formStatus show';
+      statusBox.textContent = '전송 중입니다. 잠시만 기다려 주세요...';
+
+      try{
+        const formData = new FormData(form);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if(res.ok){
+          statusBox.className = 'formStatus show ok';
+          statusBox.textContent = '접수 완료되었습니다. 빠르게 연락드리겠습니다. 감사합니다.';
+          form.reset();
+        } else {
+          statusBox.className = 'formStatus show err';
+          statusBox.textContent = '전송에 실패했습니다. 잠시 후 다시 시도해 주세요. (Formspree 설정/인증 상태를 확인해 주세요.)';
+        }
+      } catch(err){
+        statusBox.className = 'formStatus show err';
+        statusBox.textContent = '네트워크 오류로 전송에 실패했습니다. 인터넷 연결을 확인 후 다시 시도해 주세요.';
+      }
+    });
+  </script>
+</body>
+</html>
